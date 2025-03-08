@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <div class="card-header">Available Products</div>
+      <div class="card-body">
+        <div class="list-group">
+          <div class="list-group-item" *ngFor="let product of products">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="mb-1">{{ product.name }}</h5>
+                <p class="mb-0">${{ product.price }}</p>
+              </div>
+              <button class="btn btn-primary btn-sm" (click)="addToCart(product)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <div class="card-header">Your Cart</div>
+      <div class="card-body">
+        <div *ngIf="cartItems.length === 0" class="alert alert-info">
+          Cart is empty
+        </div>
+
+        <div *ngIf="cartItems.length > 0">
+          <div class="list-group mb-3">
+            <div class="list-group-item" *ngFor="let item of cartItems; let i = index">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="mb-1">{{ item.name }}</h5>
+                  <p class="mb-0">{{ item.quantity }} × ${{ item.unit_price }} = ${{ item.total_price }}</p>
+                </div>
+                <button class="btn btn-danger btn-sm" (click)="removeFromCart(i)">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <h5>Total:</h5>
+            <h5>${{ getTotalAmount() }}</h5>
+          </div>
+
+          <button class="btn btn-success w-100" [disabled]="loading" (click)="placeOrder()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+            Place Order
+          </button>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+      </div>
+    </div>
+  </div>
+</div>
