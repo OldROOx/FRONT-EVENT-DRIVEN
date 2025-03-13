@@ -10,7 +10,7 @@
                 <h5 class="mb-1">{{ product.name }}</h5>
                 <p class="mb-0">${{ product.price }}</p>
               </div>
-              <button class="btn btn-primary btn-sm" (click)="addToCart(product)">Add to Cart</button>
+              <button class="btn btn-primary btn-sm" (click)="addToCart(product)">Añadir a carro</button>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
                   <h5 class="mb-1">{{ item.name }}</h5>
                   <p class="mb-0">{{ item.quantity }} × ${{ item.unit_price }} = ${{ item.total_price }}</p>
                 </div>
-                <button class="btn btn-danger btn-sm" (click)="removeFromCart(i)">Remove</button>
+                <button class="btn btn-danger btn-sm" (click)="removeFromCart(i)">Eliminar</button>
               </div>
             </div>
           </div>

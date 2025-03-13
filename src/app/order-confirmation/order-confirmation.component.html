@@ -21,23 +21,23 @@
       }">
         <h5>Order Status: {{ order.status }}</h5>
         <p *ngIf="order.status === 'CREATED' || order.status === 'PENDING'">
-          Your payment is being processed...
+          Tu pago esta siendo procesado...
         </p>
         <p *ngIf="order.status === 'PAID'">
-          Your payment has been completed successfully!
+          Tu pago ha sido EXITOSO!
         </p>
         <p *ngIf="order.status === 'CANCELED'">
-          There was an issue with your payment.
+          Ha habido un problema con su pago.
         </p>
       </div>
 
-      <h5 class="mt-4">Order #{{ order.id }} Details</h5>
+      <h5 class="mt-4">Orden #{{ order.id }} Detalles</h5>
       <table class="table mt-3">
         <thead>
         <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Unit Price</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
           <th>Total</th>
         </tr>
         </thead>
@@ -59,10 +59,10 @@
 
       <div class="mt-4">
         <button class="btn btn-primary me-2" (click)="refreshOrder()">
-          Refresh Status
+          Refrescar Status
         </button>
         <a class="btn btn-outline-secondary" routerLink="/">
-          Back to Products
+          Volver a Productos
         </a>
       </div>
     </div>
